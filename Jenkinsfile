@@ -1,8 +1,8 @@
 pipeline {
   agent any
 
-  triggers {
-    cron('H 2 * * *')   // Runs at 2 AM daily
+  tools {
+    nodejs "Node18"
   }
 
   stages {
