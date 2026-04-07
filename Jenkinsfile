@@ -26,8 +26,10 @@ pipeline {
 
     stage('Archive Results') {
       steps {
-        archiveArtifacts artifacts: 'cypress/videos/**'
-        archiveArtifacts artifacts: 'cypress/screenshots/**'
+        archiveArtifacts artifacts: 'cypress/videos/**', allowEmptyArchive: true
+        archiveArtifacts artifacts: 'cypress/screenshots/**', allowEmptyArchive: true
+        archiveArtifacts artifacts: 'cypress/results/*.xml', allowEmptyArchive: true
+        junit 'cypress/results/*.xml'
       }
     }
   }
