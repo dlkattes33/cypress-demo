@@ -29,7 +29,7 @@ pipeline {
         archiveArtifacts artifacts: 'cypress/videos/**', allowEmptyArchive: true
         archiveArtifacts artifacts: 'cypress/screenshots/**', allowEmptyArchive: true
         archiveArtifacts artifacts: 'cypress/results/*.xml', allowEmptyArchive: true
-        junit testResults: 'cypress/results/*.xml', allowEmptyResults: true
+       // junit testResults: 'cypress/results/*.xml', allowEmptyResults: true
       }
     }
   }
