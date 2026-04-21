@@ -2,10 +2,11 @@ pipeline {
   agent any
 
   tools {
-    nodejs "Node18"
+    nodejs "Node20"
   }
 
   stages {
+
     stage('Checkout') {
       steps {
         checkout scm
@@ -20,7 +21,7 @@ pipeline {
 
     stage('Run Cypress Tests') {
       steps {
-        sh 'npx cypress run'
+        sh 'npx cypress run --reporter junit --reporter-options "mochaFile=cypress/results/results-[hash].xml,toConsole=false"'
       }
     }
 
@@ -29,7 +30,7 @@ pipeline {
         archiveArtifacts artifacts: 'cypress/videos/**', allowEmptyArchive: true
         archiveArtifacts artifacts: 'cypress/screenshots/**', allowEmptyArchive: true
         archiveArtifacts artifacts: 'cypress/results/*.xml', allowEmptyArchive: true
-       // junit testResults: 'cypress/results/*.xml', allowEmptyResults: true
+        junit testResults: 'cypress/results/*.xml', allowEmptyResults: true
       }
     }
   }
