@@ -26,12 +26,13 @@ pipeline {
     }
 
     stage('Archive Results') {
-      steps {
-        archiveArtifacts artifacts: 'cypress/videos/**', allowEmptyArchive: true
-        archiveArtifacts artifacts: 'cypress/screenshots/**', allowEmptyArchive: true
-        archiveArtifacts artifacts: 'cypress/results/*.xml', allowEmptyArchive: true
-        junit testResults: 'cypress/results/*.xml', allowEmptyResults: true
-      }
-    }
+        steps {
+            archiveArtifacts artifacts: 'cypress/screenshots/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'cypress/results/*.xml', allowEmptyArchive: true
+
+            // Jenkins prefers this exact glob pattern for Cypress JUnit output
+            junit testResults: 'cypress/results/*.xml', allowEmptyResults: true
+          }
+        }
   }
 }
