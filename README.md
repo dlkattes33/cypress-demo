@@ -1,30 +1,58 @@
-# cypress-demo
+Cypress Demo — UI Automation Project
+This repository contains a clean Cypress automation framework demonstrating UI and API testing fundamentals, project structure, and Jenkins CI/CD integration.
 
-This repository contains a clean, minimal Cypress automation framework designed to demonstrate UI and API testing fundamentals, project structure, and CI/CD integration using Jenkins. It serves as a portfolio example of how I approach front-end test automation in a modern JavaScript environment.
+🚀 Features
+Cypress 13+
 
-## 📌 Project Overview
-This demo showcases:
+UI + API tests
 
-- Cypress test automation (UI + API)
-- Page structure and test organization
-- Custom Cypress configuration
-- Jenkins pipeline integration
-- npm‑based project setup
-- Example tests written using Cypress best practices
+JUnit XML reporting
 
-The goal of this project is to provide a simple, readable, and extendable foundation for real-world Cypress automation.
+Screenshot + video capture
 
----
+Jenkins pipeline automation
 
-## 🧱 Tech Stack
+npm‑based project setup
 
-- **Cypress 13+**
-- **Node.js / npm**
-- **JavaScript**
-- **Jenkins (Pipeline)**  
-- **GitHub** for version control
+📁 Project Structure
+Code
+cypress-demo/
+│
+├── cypress/
+│   ├── e2e/
+│   ├── fixtures/
+│   ├── screenshots/
+│   └── results/
+│
+├── cypress.config.js
+├── package.json
+└── Jenkinsfile
+🧪 Running Tests Locally
+Install dependencies:
 
----
+Code
+npm ci
+Run Cypress headless:
 
-## 📁 Project Structure
+Code
+npx cypress run
+Run Cypress UI:
 
+Code
+npx cypress open
+🔧 Jenkins Pipeline
+The Jenkinsfile performs:
+
+SCM checkout
+
+Install Node.js (Node20 tool)
+
+Install dependencies (npm ci)
+
+Run Cypress tests with JUnit reporter
+
+Archive:
+
+cypress/screenshots/**
+
+cypress/results/*.xml
